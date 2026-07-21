@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: targeting-deployment
+  namespace: targeting-namespace
+  labels:
+    app: targeting-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: targeting-service
+  template:
+    metadata:
+      labels:
+        app: targeting-service
+    spec:
+      containers:
+        - name: targeting-service
+          image: <>
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8003
+          envFrom:
+            - configMapRef:
+                name: targeting-configmap
+            - secretRef:
+                name: targeting-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
+
+          
+          #readinessProbe:
+            #httpGet:
+              #path: /health
+             # port: 8003
+            #initialDelaySeconds: 10
+           # periodSeconds: 10
+          #livenessProbe:
+            #httpGet:
+              #path: /health
+             # port: 8003
+            #initialDelaySeconds: 20
+            #periodSeconds: 15

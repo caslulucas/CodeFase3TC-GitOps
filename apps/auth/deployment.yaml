@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+  namespace: auth-namespace
+  labels:
+    app: auth-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+        - name: auth-service
+          image: <>
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8001
+          envFrom:
+            - configMapRef:
+                name: auth-configmap
+            - secretRef:
+                name: auth-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
+
+          #readinessProbe:
+           # httpGet:
+            #  path: /health
+             # port: 8001
+            #initialDelaySeconds: 10
+            #periodSeconds: 10
+          #livenessProbe:
+           # httpGet:
+            #  path: /health
+             # port: 8001
+            #initialDelaySeconds: 20
+            #periodSeconds: 15
