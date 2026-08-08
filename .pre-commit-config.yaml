@@ -1,0 +1,9 @@
+# Pode validar antes do commit:
+
+# terraform fmt;
+# terraform validate;
+# tflint;
+# trailing whitespace;
+# YAML;
+# arquivos grandes;
+# secrets acidentais.
