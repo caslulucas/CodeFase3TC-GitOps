@@ -21,11 +21,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8003
-          envFrom:
-            - configMapRef:
-                name: targeting-configmap
-            - secretRef:
-                name: targeting-secret
+          # envFrom:
+          #   - configMapRef:
+          #       name: targeting-configmap
+          #   - secretRef:
+          #       name: targeting-secret
           resources:
             requests:
               cpu: "100m"

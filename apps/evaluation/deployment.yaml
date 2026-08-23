@@ -21,11 +21,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8004
-          envFrom:
-            - configMapRef:
-                name: evaluation-configmap
-            - secretRef:
-                name: evaluation-secret
+          # envFrom:
+          #   - configMapRef:
+          #       name: evaluation-configmap
+          #   - secretRef:
+          #       name: evaluation-secret
           resources:
             requests:
               cpu: "200m"
@@ -35,15 +35,15 @@ spec:
               memory: "512Mi"
 
            
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 8004
-            initialDelaySeconds: 10
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8004
-            initialDelaySeconds: 20
-            periodSeconds: 15
+          # readinessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: 8004
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 10
+          # livenessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: 8004
+          #   initialDelaySeconds: 20
+          #   periodSeconds: 15

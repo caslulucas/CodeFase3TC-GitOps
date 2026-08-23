@@ -21,11 +21,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8002
-          envFrom:
-            - configMapRef:
-                name: flag-configmap
-            - secretRef:
-                name: flag-secret
+          # envFrom:
+          #   - configMapRef:
+          #       name: flag-configmap
+          #   - secretRef:
+          #       name: flag-secret
           resources:
             requests:
               cpu: "100m"

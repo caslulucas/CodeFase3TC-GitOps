@@ -21,11 +21,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8001
-          envFrom:
-            - configMapRef:
-                name: auth-configmap
-            - secretRef:
-                name: auth-secret
+          # envFrom:
+          #   - configMapRef:
+          #       name: auth-configmap
+          #   - secretRef:
+          #       name: auth-secret
           resources:
             requests:
               cpu: "100m"
