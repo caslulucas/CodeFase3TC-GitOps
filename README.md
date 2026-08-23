@@ -9,3 +9,4 @@ Repositório GitOps
 ArgoCD
 Atualização automática de versões
 Sincronização do cluster
+
