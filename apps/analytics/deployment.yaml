@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: analytics-deployment
-  namespace: analytics-namespace
+  namespace: analytics
   labels:
     app: analytics-service
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: analytics-service
-          image: <>
+          image: 111111111111.dkr.ecr.us-east-1.amazonaws.com/togglemaster-analytics:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8005

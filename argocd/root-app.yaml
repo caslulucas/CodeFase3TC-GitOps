@@ -1,0 +1,63 @@
+# ArgoCD
+#  ↓
+# root-app
+#  ↓
+# platform-app
+#  ↓
+# namespaces
+#  ↓
+# ingress
+# e
+
+# 5 microsserviços
+
+# =====================================================================
+# ARGOCD ROOT APPLICATION
+#
+# Application principal responsável por descobrir e gerenciar os
+# Applications filhos dos cinco microsserviços.
+# =====================================================================
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  # Nome exibido na interface do ArgoCD
+  name: root-app
+  namespace: argocd
+
+spec:
+  # Utiliza o projeto padrão do ArgoCD
+  project: default
+
+  source:
+    repoURL: https://github.com/caslulucas/CodeFase3TC-GitOps.git
+
+    # Branch monitorada pelo ArgoCD
+    targetRevision: HEAD
+
+    # Diretório que contém os Applications filhos
+    path: argocd
+
+    directory:
+      # Impede o root-app de tentar gerenciar o próprio manifesto
+      exclude: root-app.yaml
+
+  destination:
+    # Cluster Kubernetes onde o próprio ArgoCD está instalado
+    server: https://kubernetes.default.svc
+
+    # Applications filhos serão criados no namespace do ArgoCD
+    namespace: argocd
+
+  syncPolicy:
+    automated:
+      # Exclui do cluster recursos removidos do Git
+      prune: true
+
+      # Corrige alterações manuais feitas diretamente no cluster
+      selfHeal: true
+
+    syncOptions:
+      # Cria o namespace de destino caso ele ainda não exista
+      - CreateNamespace=true

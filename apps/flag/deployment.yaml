@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flag-deployment
-  namespace: flag-namespace
+  namespace: flag
   labels:
     app: flag-service
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: flag-service
-          image: <>
+          image: 111111111111.dkr.ecr.us-east-1.amazonaws.com/togglemaster-flag:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8002

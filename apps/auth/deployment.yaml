@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-deployment
-  namespace: auth-namespace
+  namespace: auth
   labels:
     app: auth-service
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: <>
+          image: 111111111111.dkr.ecr.us-east-1.amazonaws.com/togglemaster-auth:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8001

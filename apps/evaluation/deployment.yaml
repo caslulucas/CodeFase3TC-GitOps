@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: evaluation-deployment
-  namespace: evaluation-namespace
+  namespace: evaluation
   labels:
     app: evaluation-service
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: evaluation-service
-          image: <>
+          image: 111111111111.dkr.ecr.us-east-1.amazonaws.com/togglemaster-evaluation:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8004

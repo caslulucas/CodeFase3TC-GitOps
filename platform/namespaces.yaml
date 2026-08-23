@@ -1,0 +1,48 @@
+# =====================================================================
+# NAMESPACES DA PLATAFORMA TOGGLEMASTER
+# Mantém cada microsserviço isolado logicamente dentro do cluster.
+# =====================================================================
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: auth
+  labels:
+    app.kubernetes.io/part-of: togglemaster
+    app.kubernetes.io/managed-by: argocd
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flag
+  labels:
+    app.kubernetes.io/part-of: togglemaster
+    app.kubernetes.io/managed-by: argocd
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: targeting
+  labels:
+    app.kubernetes.io/part-of: togglemaster
+    app.kubernetes.io/managed-by: argocd
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: evaluation
+  labels:
+    app.kubernetes.io/part-of: togglemaster
+    app.kubernetes.io/managed-by: argocd
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: analytics
+  labels:
+    app.kubernetes.io/part-of: togglemaster
+    app.kubernetes.io/managed-by: argocd
