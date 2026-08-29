@@ -1,18 +1,12 @@
-# # Terraform
-# .terraform/
-# *.tfstate
-# *.tfstate.backup
 
 # # VsCode
-# .vscode/ 
+.vscode/ 
 
-# # Python
-# __pycache__/
-# *.pyc
 
 # # Env
-# .env
+.env
 
 # # Logs
-# *.log
-
+*.log
+*.tmp
+.DS_Store

@@ -1,0 +1,21 @@
+name: Validate Manifests
+
+on:
+  push:
+
+jobs:
+
+  validate:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Kustomize
+        run: |
+          kubectl kustomize apps/auth
+          kubectl kustomize apps/flag
+          kubectl kustomize apps/targeting
+          kubectl kustomize apps/evaluation
+          kubectl kustomize apps/analytics
