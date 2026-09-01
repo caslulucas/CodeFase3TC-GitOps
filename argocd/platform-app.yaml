@@ -19,7 +19,7 @@ spec:
 
   source:
     repoURL: https://github.com/caslulucas/CodeFase3TC-GitOps.git
-    targetRevision: HEAD
+    targetRevision: main
     path: platform
 
   destination:

@@ -34,7 +34,7 @@ spec:
     repoURL: https://github.com/caslulucas/CodeFase3TC-GitOps.git
 
     # Branch monitorada pelo ArgoCD
-    targetRevision: HEAD
+    targetRevision: main
 
     # Diretório que contém os Applications filhos
     path: argocd
